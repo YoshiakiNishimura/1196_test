@@ -1,0 +1,19 @@
+in:
+  type: file
+  path_prefix: input/input.csv
+  parser:
+    type: csv
+    columns:
+    - {name: id, type: long}
+
+out:
+  type:
+    source: maven
+    group: io.github.hishidama.embulk
+    name: tsurugidb
+    version: 1.1.0
+  endpoint: ipc://tsurugi
+  table: test_table
+  tx_type: OCC
+  method: put
+  method_option: put_overwrite
